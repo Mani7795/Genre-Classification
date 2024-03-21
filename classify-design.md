@@ -1,0 +1,10 @@
+The model is saved and derived from train file, the description column is preprocessed and cleaned. In the initial preprocessing steps, empty rows are removed, script checks whether the text column contains any links. Furthermore, words with a frequency of less than three are filtered out. The rows which are null are removed as well while doing this all the words are converted into lower case as well. I have used the custom stop words to remove the stopwords from the dataset, as importing the stopwords package and cleaning is taking lot time. The rationale behind filtering out words with a frequency of less than three is to improve model accuracy. Including words that occur very infrequently can negatively impact model performance. For instance, if a word is present in the training data but does not appear in the test dataset, the model might not generalize well and could lead to inaccurate predictions. Therefore, by removing such infrequent words, the main aim is to enhance the model's ability to make more reliable predictions.
+
+Next part is training the model and converting the description column and genre column into numerical format. For converting the genre in numerical, we are creating the matrix with size of dataframe shape and number of distinct genres present. Next step is creating a matrix with 1 and 0's according to lookup table. Using text vectorization, convert text in numbers. The neural network model is constructed using tensorflow and keras. In text vectorization, the vocabulory is size is set to 15000 words. The model has 64 dense layers wher it has relu activation and 28 layers using softmax activation layer for multi class classification of genres. Embedding layer is used for mapping vocabulory tokens. Adam optimizer is used for model training. 
+
+The model is evaluated on test data and model is save using keras. Here pickle is used for stored a lookup table for predicting the genres. Once we pass the input file to model it predicts the top 3 genres suitable for that description.
+
+
+```python
+
+```
